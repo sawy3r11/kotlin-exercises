@@ -5,12 +5,12 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 class Observable<T>(initial: T, val observers: MutableList<(T) -> Unit> = mutableListOf()) {
-    fun observe(function: (T) -> Unit) {
-        addObserver(function)
+    fun observe(lambda: (T) -> Unit) {
+        addObserver(lambda)
     }
 
-    private fun addObserver(function: (T) -> Unit) {
-        observers.add(function)
+    private fun addObserver(lambda: (T) -> Unit) {
+        observers.add(lambda)
     }
 
     var value: T = initial
